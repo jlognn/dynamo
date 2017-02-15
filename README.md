@@ -1,7 +1,7 @@
 Dynamo
 =========
 
-A tiny (really, just 36 lines of code un-minified) library for simple React state management
+A tiny (really, just 54 lines of code un-minified and pre-transpiled) library for simple React state management
 
 ## Installation
 

@@ -1,6 +1,6 @@
 {
   "name": "react-dynamo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Really simple state management for React",
   "main": "index.js",
   "scripts": {
