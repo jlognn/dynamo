@@ -1,0 +1,25 @@
+{
+  "name": "dynamo",
+  "version": "1.0.0",
+  "description": "Really simple state management for React",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoeLogan1981/dynamo.git"
+  },
+  "keywords": [
+    "react",
+    "state",
+    "management",
+    "redux"
+  ],
+  "author": "“Joe <“joelogan1981@gmail.com”> (http://www.medsquared.com.au)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoeLogan1981/dynamo/issues"
+  },
+  "homepage": "https://github.com/JoeLogan1981/dynamo#readme"
+}
