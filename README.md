@@ -11,7 +11,7 @@ A tiny (really, just 36 lines of code un-minified) library for simple React stat
 
   For your root element:
 
-    
+
     import Dynamo from 'dynamo';
 
     Dynamo.subscribe( () => {
@@ -22,25 +22,17 @@ A tiny (really, just 36 lines of code un-minified) library for simple React stat
 
   To modify the state:
 
-    ```
     import Dynamo from 'dynamo';
-
     Dynamo.dispatch({ key: value});
 
-    ```
 
   To obtain the state:
 
-    ```
     Dynamo.getState();
-
-    ```
 
   To use Dynamo in debug mode, which logs out the state to the console:
 
-    ```
     Dynamo.debugMode();
-    ```
 
 ## Contributing
 
