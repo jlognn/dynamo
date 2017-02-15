@@ -1,5 +1,5 @@
 {
-  "name": "dynamo",
+  "name": "react-dynamo",
   "version": "1.0.0",
   "description": "Really simple state management for React",
   "main": "index.js",

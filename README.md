@@ -5,14 +5,14 @@ A tiny (really, just 36 lines of code un-minified) library for simple React stat
 
 ## Installation
 
-  `npm install dynamo`
+  `npm install react-dynamo`
 
 ## Usage
 
   For your root element:
 
 
-    import Dynamo from 'dynamo';
+    import Dynamo from 'react-dynamo';
 
     Dynamo.subscribe( () => {
       this.setState(Dynamo.getState())
@@ -22,7 +22,7 @@ A tiny (really, just 36 lines of code un-minified) library for simple React stat
 
   To modify the state:
 
-    import Dynamo from 'dynamo';
+    import Dynamo from 'react-dynamo';
     Dynamo.dispatch({ key: value});
 
 
