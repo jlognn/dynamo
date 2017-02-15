@@ -11,13 +11,12 @@ A tiny (really, just 36 lines of code un-minified) library for simple React stat
 
   For your root element:
 
-    ```
+    
     import Dynamo from 'dynamo';
 
     Dynamo.subscribe( () => {
       this.setState(Dynamo.getState())
     })
-    ```
 
   Then pass the state along to your other components as props. Easy!
 
