@@ -21,6 +21,7 @@ var Dynamo = exports.Dynamo = function () {
     this.state = init;
     this.listeners = [];
     this.debug = false;
+    this.connected = null;
   }
 
   _createClass(Dynamo, [{
@@ -37,20 +38,14 @@ var Dynamo = exports.Dynamo = function () {
     key: "dispatch",
     value: function dispatch(change) {
       Object.assign(this.state, change);
-      for (var i = 0; i < this.listeners.length; i++) {
-        this.listeners[i]();
-      }
+      this.connected.setState(this.state);
       if (this.debug) console.log(this.state);
     }
   }, {
-    key: "subscribe",
-    value: function subscribe(listener) {
-      this.listeners.push(listener);
-    }
-  }, {
-    key: "unsubscribe",
-    value: function unsubscribe() {
-      this.listeners.splice(1, this.listeners.length);
+    key: "connect",
+    value: function connect(ref) {
+      this.connected = ref;
+      ref.state = this.getState();
     }
   }]);
 

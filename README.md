@@ -18,11 +18,9 @@ A tiny (really, just fifty lines of code) library for simple dynamic React state
     }
     export default Dynamo(initialState);
 
-  You now have a store component which you can connect to your app.  It is recommended to import
-  this in your root component, usually index.js, and pass elements of the store to child
-  components as props.
+  You now have a store component which you can connect to your app using the `connect` method.  It is recommended to import this in your root component, usually index.js, and pass elements of the store to child components as props.
 
-  Creating a connected root component in React:
+  Example: Creating a connected root component in React:
 
     import React from 'react';
     import ReactDOM from 'react-dom';
@@ -33,10 +31,7 @@ A tiny (really, just fifty lines of code) library for simple dynamic React state
 
       constructor() {
         super()
-        this.state = Store.getState()
-        Store.subscribe( () => {
-          this.setState( Store.getState() )
-        })
+        Store.connect(this)
       }
 
       render() {

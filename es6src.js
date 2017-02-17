@@ -4,6 +4,7 @@ export class Dynamo {
     this.state = init;
     this.listeners = [];
     this.debug = false;
+    this.connected = null;
   }
 
   debugMode() {
@@ -16,18 +17,13 @@ export class Dynamo {
 
   dispatch(change) {
   	Object.assign(this.state, change)
-  	for (let i = 0; i < this.listeners.length; i++) {
-  		this.listeners[i]();
-  	}
+    this.connected.setState(this.state)
     if (this.debug) console.log(this.state);
   }
 
-  subscribe(listener) {
-  	this.listeners.push(listener)
-  }
-
-  unsubscribe() {
-  	this.listeners.splice(1, this.listeners.length);
+  connect(ref) {
+    this.connected = ref;
+    ref.state = this.getState()
   }
 }
 
