@@ -1,6 +1,9 @@
 {
   "name": "react-dynamo",
-  "version": "1.0.1",
+  "version": "1.0.3",
+  "babel": {
+    "presets": ["env"]
+  },
   "description": "Really simple state management for React",
   "main": "index.js",
   "scripts": {
@@ -21,5 +24,9 @@
   "bugs": {
     "url": "https://github.com/JoeLogan1981/dynamo/issues"
   },
-  "homepage": "https://github.com/JoeLogan1981/dynamo#readme"
+  "homepage": "https://github.com/JoeLogan1981/dynamo#readme",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-env": "^1.1.8"
+  }
 }

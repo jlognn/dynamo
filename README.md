@@ -1,7 +1,7 @@
 Dynamo
 =========
 
-A tiny (really, just 54 lines of code un-minified and pre-transpiled) library for simple React state management
+A tiny (really, just fifty lines of code) library for simple dynamic React state management
 
 ## Installation
 
@@ -9,26 +9,63 @@ A tiny (really, just 54 lines of code un-minified and pre-transpiled) library fo
 
 ## Usage
 
-  For your root element:
-
-
-    import Dynamo from 'react-dynamo';
-
-    Dynamo.subscribe( () => {
-      this.setState(Dynamo.getState())
-    })
-
-  Then pass the state along to your other components as props. Easy!
-
-  To modify the state:
+  Create a store (store.js) and set your app's initial state:
 
     import Dynamo from 'react-dynamo';
-    Dynamo.dispatch({ key: value});
+    const initialState = {
+      name: 'Joe',
+      gender: 'Male'
+    }
+    export default Dynamo(initialState);
 
+  You now have a store component which you can connect to your app.  It is recommended to import
+  this in your root component, usually index.js, and pass elements of the store to child
+  components as props.
 
-  To obtain the state:
+  Creating a connected root component in React:
 
-    Dynamo.getState();
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import Store from './components/Store';
+    import App from './App';
+
+    class Root extends React.Component {
+
+      constructor() {
+        super()
+        this.state = Store.getState()
+        Store.subscribe( () => {
+          this.setState( Store.getState() )
+        })
+      }
+
+      render() {
+        return <App store={this.state}/>
+      }
+    }
+
+    ReactDOM.render(
+      <Root />,
+      document.getElementById('root')
+    );
+
+  We now have our main <App> component connected to the entire Dynamo store.  
+  Within our app component, we can:
+
+    import Store from './store'
+
+    // Access store items
+
+    var name = this.props.store.name;
+
+    // Modify the store
+
+    Dynamo.dispatch({ age: 34});
+
+    // Get the state (if not available through props)
+
+    var currentState = Dynamo.getState();
+
 
   To use Dynamo in debug mode, which logs out the state to the console:
 
