@@ -60,16 +60,16 @@ A tiny (really, just fifty lines of code) library for simple dynamic React state
 
     // Modify the store
 
-    Dynamo.dispatch({ age: 34});
+    Store.dispatch({ age: 34});
 
     // Get the state (if not available through props)
 
-    var currentState = Dynamo.getState();
+    var currentState = Store.getState();
 
 
   To use Dynamo in debug mode, which logs out the state to the console:
 
-    Dynamo.debugMode();
+    Store.debugMode();
 
 ## Contributing
 
