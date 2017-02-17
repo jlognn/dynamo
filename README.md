@@ -1,7 +1,9 @@
 Dynamo
 =========
 
-A tiny (really, just fifty lines of code) library for simple dynamic React state management
+A tiny (really, just fifty lines of code) library for simple dynamic React state management. The
+ethos of Dynamo is that you create a simple store, pick items out of it dynamically and as-needed
+through the `getState()` method, and change the store using the `dispatch()` method.
 
 ## Installation
 
@@ -9,7 +11,8 @@ A tiny (really, just fifty lines of code) library for simple dynamic React state
 
 ## Usage
 
-  Create a store (store.js) and set your app's initial state:
+  The first step in getting set up with Dynamo, is creating a global singleton Store Object
+  and initialising it.  For example, we create a `store.js` file and use the following pattern:
 
     import Dynamo from 'react-dynamo';
     const initialState = {
@@ -18,13 +21,14 @@ A tiny (really, just fifty lines of code) library for simple dynamic React state
     }
     export default Dynamo(initialState);
 
-  You now have a store component which you can connect to your app using the `connect` method.  It is recommended to import this in your root component, usually index.js, and pass elements of the store to child components as props.
+  You can then `connect` this store object to your root react component, using the `Dynamo.connect()`
+  method.
 
   Example: Creating a connected root component in React:
 
     import React from 'react';
     import ReactDOM from 'react-dom';
-    import Store from './components/Store';
+    import Store from './store';
     import App from './App';
 
     class Root extends React.Component {
@@ -35,7 +39,7 @@ A tiny (really, just fifty lines of code) library for simple dynamic React state
       }
 
       render() {
-        return <App store={this.state}/>
+        return <App>;
       }
     }
 
@@ -44,23 +48,17 @@ A tiny (really, just fifty lines of code) library for simple dynamic React state
       document.getElementById('root')
     );
 
-  We now have our main <App> component connected to the entire Dynamo store.  
-  Within our app component, we can:
+  We now have our main <App> component and all of it's children connected to the entire Dynamo store.  Within our app component, we can:
 
     import Store from './store'
 
     // Access store items
 
-    var name = this.props.store.name;
+    var name = Store.getState().name;
 
     // Modify the store
 
     Store.dispatch({ age: 34});
-
-    // Get the state (if not available through props)
-
-    var currentState = Store.getState();
-
 
   To use Dynamo in debug mode, which logs out the state to the console:
 
