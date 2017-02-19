@@ -4,7 +4,9 @@ Dynamo
 A tiny (really, just 26 lines of code) library for simple dynamic React state management, with no dependencies.  Dynamo eschews much of the boilerplate and overhead
 involved in other libraries such as Redux and Flux, by focusing on simplicity and developer control of state.  You can get up and running with Dynamo in less than one
 minute.  Seriously.  There are no reducers here, and no action creators.  Simply create a store as demonstrated below, and use the `Dynamo.set()` method to add to or
-modify items in the store, and the `Dynamo.get()` method to retrieve items.  Super easy!
+modify items in the store, and the `Dynamo.get()` method to retrieve items.  Super easy!  
+
+Check out our simple tutorial at [this link](http://www.medsquared.com.au/blog/simpler-redux-alternative-dynamojs/)
 
 ## Installation
 
