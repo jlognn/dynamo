@@ -30,13 +30,13 @@ var Dynamo = exports.Dynamo = function () {
       this.debug = true;
     }
   }, {
-    key: "getState",
-    value: function getState() {
+    key: "get",
+    value: function get() {
       return this.state;
     }
   }, {
-    key: "dispatch",
-    value: function dispatch(change) {
+    key: "set",
+    value: function set(change) {
       Object.assign(this.state, change);
       this.connected.setState(this.state);
       if (this.debug) console.log(this.state);
@@ -45,7 +45,7 @@ var Dynamo = exports.Dynamo = function () {
     key: "connect",
     value: function connect(ref) {
       this.connected = ref;
-      ref.state = this.getState();
+      ref.state = this.get();
     }
   }]);
 
